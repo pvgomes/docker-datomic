@@ -22,8 +22,8 @@ RUN sed "s/# data-dir=data/data-dir=\/data/" -i transactor.properties
 RUN mkdir /log
 RUN sed "s/# log-dir=log/log-dir=\/log/" -i transactor.properties
 
-ADD start.sh ./
-RUN chmod +x start.sh
+ADD up.sh ./
+RUN chmod +x up.sh
 
 EXPOSE 4334 4335 4336
 
