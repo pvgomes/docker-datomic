@@ -26,6 +26,7 @@ deps.edn
  :paths ["src"]}
 ```
 
+### Clojure connect to datomic example
 src/example.clj
 ```clojure
 ;; create
