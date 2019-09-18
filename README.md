@@ -12,3 +12,27 @@ To start a container with Docker
 You can access your databases through this URIs
 
     datomic:free://localhost:4334/<DB_NAME>?password=datomic
+
+
+## Usage examples
+deps.edn
+```
+{:deps
+ {org.clojure/data.csv {:mvn/version "0.1.4"}
+  org.clojure/data.json {:mvn/version "0.2.6"}
+  org.clojure/data.generators {:mvn/version "0.1.2"}
+  org.clojure/clojure {:mvn/version "1.10.1"}
+  com.datomic/datomic-free {:mvn/version "0.9.5697"}}
+ :paths ["src"]}
+```
+
+src/example.clj
+```clojure
+;; create
+(require '[datomic.api :as d])
+(def db-uri "datomic:free://localhost:4334/databasename?password=datomic")
+(d/create-database db-uri)
+
+;; connect to database
+(def conn (d/connect db-uri))
+```
